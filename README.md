@@ -1,4 +1,4 @@
-# spark-to-json
+# spark-to-json [![Build Status](https://travis-ci.org/tjmehta/spark-to-json.svg?branch=master)](https://travis-ci.org/tjmehta/spark-to-json)
 Returns a JSON representation of a Primus spark
 
 # Installation
