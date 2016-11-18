@@ -1,6 +1,6 @@
 {
   "name": "spark-to-json",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Returns a JSON representation of a Primus spark",
   "main": "index.js",
   "dependencies": {
