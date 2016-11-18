@@ -1,0 +1,35 @@
+{
+  "name": "spark-to-json",
+  "version": "0.0.0",
+  "description": "Returns a JSON representation of a Primus spark",
+  "main": "index.js",
+  "dependencies": {
+    "101": "^1.6.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "primus": "^6.0.5",
+    "ws": "^1.1.1"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjmehta/spark-to-json.git"
+  },
+  "keywords": [
+    "tojson",
+    "json",
+    "spark",
+    "primus"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/spark-to-json/issues"
+  },
+  "homepage": "https://github.com/tjmehta/spark-to-json#readme"
+}
