@@ -4,6 +4,7 @@ var it = global.it
 var http = require('http')
 
 var expect = require('chai').expect
+var filter = require('object-loops/filter')
 var Primus = require('primus')
 
 var sparkToJSON = require('../index.js')
@@ -30,7 +31,9 @@ describe('spark-to-json', function () {
           const json = sparkToJSON(spark)
           expect(json).to.deep.equal({
             id: spark.id,
-            headers: spark.headers,
+            headers: filter(spark.headers, function (val, key) {
+              return !/^primus::/.test(key)
+            }),
             remote: spark.remote
           })
           self.client.end()
@@ -47,7 +50,9 @@ describe('spark-to-json', function () {
           expect(json).to.deep.equal({
             id: spark.id,
             foo: spark.foo,
-            headers: spark.headers,
+            headers: filter(spark.headers, function (val, key) {
+              return !/^primus::/.test(key)
+            }),
             remote: spark.remote
           })
           self.client.end()

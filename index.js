@@ -1,4 +1,7 @@
+var filter = require('object-loops/filter')
 var pick = require('101/pick')
+
+var primusHeaderRegExp = /^primus::/
 
 module.exports = sparkToJSON
 
@@ -16,5 +19,9 @@ function sparkToJSON (spark, additional) {
     'remote'
   ]
   props = props.concat(additional)
-  return pick(spark, props)
+  var out = pick(spark, props)
+  out.headers = filter(out.headers, function (val, key) {
+    return !primusHeaderRegExp.test(key)
+  })
+  return out
 }
