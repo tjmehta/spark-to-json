@@ -11,7 +11,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "object-loops": "^0.8.0",
-    "primus": "^6.0.5",
+    "primus": "^7.0.0",
     "ws": "^1.1.1"
   },
   "scripts": {
