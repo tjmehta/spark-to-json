@@ -12,7 +12,7 @@
     "mocha": "^3.1.2",
     "object-loops": "^0.8.0",
     "primus": "^6.0.5",
-    "ws": "^1.1.1"
+    "ws": "^3.3.1"
   },
   "scripts": {
     "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
