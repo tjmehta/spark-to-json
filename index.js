@@ -20,8 +20,10 @@ function sparkToJSON (spark, additional) {
   ]
   props = props.concat(additional)
   var out = pick(spark, props)
-  out.headers = filter(out.headers, function (val, key) {
-    return !primusHeaderRegExp.test(key)
-  })
+  if (out.headers) {
+    out.headers = filter(out.headers, function (val, key) {
+      return !primusHeaderRegExp.test(key)
+    })
+  }
   return out
 }
