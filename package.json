@@ -7,7 +7,7 @@
     "101": "^1.6.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "object-loops": "^0.8.0",
