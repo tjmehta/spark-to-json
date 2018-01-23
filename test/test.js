@@ -42,6 +42,21 @@ describe('spark-to-json', function () {
         this.client = new this.primus.Socket('http://localhost:' + PORT)
       })
 
+      it('should json a primus spark without headers', function (done) {
+        const self = this
+        this.primus.on('connection', function (spark) {
+          delete spark.headers
+          const json = sparkToJSON(spark)
+          expect(json).to.deep.equal({
+            id: spark.id,
+            remote: spark.remote
+          })
+          self.client.end()
+          done()
+        })
+        this.client = new this.primus.Socket('http://localhost:' + PORT)
+      })
+
       it('should json a primus spark w/ additional properties', function (done) {
         const self = this
         this.primus.on('connection', function (spark) {
