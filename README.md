@@ -1,45 +1,68 @@
 # spark-to-json [![Build Status](https://travis-ci.org/tjmehta/spark-to-json.svg?branch=master)](https://travis-ci.org/tjmehta/spark-to-json)
+
 Returns a JSON representation of a Primus spark
 
 # Installation
+
 ```bash
 npm i --save spark-to-json
 ```
 
 # Usage
-toJSON a primus spark
+
+#### Supports both ESM and CommonJS
+
 ```js
+// esm
+import sparkToJSON from 'spark-to-json'
+// commonjs
 const sparkToJSON = require('spark-to-json')
-const primus = new Primus({/* ... */})
+```
+
+#### toJSON a primus spark
+
+```js
+import sparkToJSON from 'spark-to-json'
+const primus = new Primus({
+  /* ... */
+})
 
 primus.on('connection', function (spark) {
   const json = sparkToJSON(spark)
   /*
   {
-    id: <sparkId>,
-    headers: {
-      <headers...>
+    "address": Object {
+      "ip": "::ffff:127.0.0.1",
+      "port": 1000,
+      "secure": false,
     },
-    remote: <socketRemoteAddress>
-  }
-  */
-
-  // want to pluck additional properties?
-  const json2 = sparkToJSON(spark, ['foo1', 'foo2'])
-  /*
-  {
-    id: <sparkId>,
-    headers: {
-      <headers...>
+    "alive": true,
+    "headers": Object {
+      "connection": "Upgrade",
+      "host": "localhost:3030",
+      "sec-websocket-extensions": "permessage-deflate; client_max_window_bits",
+      "sec-websocket-key": "sec-websocket-key",
+      "sec-websocket-version": "13",
+      "upgrade": "websocket",
     },
-    remote: <socketRemoteAddress>,
-    // additional properties
-    foo1: <foo1>,
-    foo2: <foo2>
+    "id": "sparkId",
+    "query": Object {
+      "_primuscb": "_primuscb",
+    },
+    "request": Object {
+      "aborted": false,
+      "complete": true,
+      "httpVersion": "1.1",
+      "method": "GET",
+      "originalUrl": "/primus?_primuscb=NAlT-Zb",
+      "trailers": Object {},
+      "url": "/primus?_primuscb=NAlT-Zb",
+    },
   }
   */
 })
 ```
 
 # License
+
 MIT
