@@ -2,20 +2,24 @@
   "name": "spark-to-json",
   "version": "1.0.2",
   "description": "Returns a JSON representation of a Primus spark",
-  "main": "index.js",
-  "dependencies": {
-    "101": "^1.6.2"
-  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "devDependencies": {
-    "chai": "^4.0.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^4.0.0",
-    "object-loops": "^0.8.0",
-    "primus": "^7.0.0",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^25.2.3",
+    "@types/primus": "^7.3.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "primus": "^7.3.4",
+    "typescript": "^3.9.3",
     "ws": "^2.0.0"
   },
   "scripts": {
-    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
+    "test": "jest --coverage",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
   },
   "repository": {
     "type": "git",
@@ -32,5 +36,9 @@
   "bugs": {
     "url": "https://github.com/tjmehta/spark-to-json/issues"
   },
-  "homepage": "https://github.com/tjmehta/spark-to-json#readme"
+  "homepage": "https://github.com/tjmehta/spark-to-json#readme",
+  "dependencies": {
+    "fast-safe-stringify": "^2.0.7",
+    "request-to-json": "^2.0.1"
+  }
 }
